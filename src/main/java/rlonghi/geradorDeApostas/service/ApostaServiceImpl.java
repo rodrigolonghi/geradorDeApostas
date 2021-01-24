@@ -50,15 +50,19 @@ public class ApostaServiceImpl implements ApostaService {
             for (int i = 0; i < 6; i++) {
                 jogo += aux.get(i).toString() + " ";
             }
-            jogo.trim();
+            jogo = jogo.trim();
 
-            for (Aposta a : apostador.getApostas()) {
-                if (a.getJogo().equals(jogo)) {
-                    apostaRepetida = true;
-                    break;
-                } else {
-                    apostaRepetida = false;
+            if(!apostador.getApostas().isEmpty()) {
+                for (Aposta a : apostador.getApostas()) {
+                    if (a.getJogo().equals(jogo)) {
+                        apostaRepetida = true;
+                        break;
+                    } else {
+                        apostaRepetida = false;
+                    }
                 }
+            }else{
+                apostaRepetida = false;
             }
         }
         Aposta aposta = new Aposta(null, jogo, Instant.now(), apostador);

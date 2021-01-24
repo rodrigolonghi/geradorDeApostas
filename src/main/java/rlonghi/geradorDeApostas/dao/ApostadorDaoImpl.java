@@ -26,12 +26,18 @@ public class ApostadorDaoImpl implements ApostadorDao{
 
     @Override
     public void deletar(Long id) {
-        em.remove(em.getReference(Aposta.class, id));
+        em.remove(em.getReference(Apostador.class, id));
     }
 
     @Override
     public Apostador buscarPorEmail(String email) {
-        return em.find(Apostador.class, email);
+        List<Apostador> apostadorList = buscarTodos();
+        for(Apostador a : apostadorList){
+            if(a.getEmail().equals(email)){
+                return em.find(Apostador.class, a.getId());
+            }
+        }
+        return null;
     }
 
     @Override

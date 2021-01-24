@@ -1,5 +1,7 @@
 package rlonghi.geradorDeApostas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ public class Apostador implements Serializable {
     @Column(nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "apostador")
+    @OneToMany(mappedBy = "apostador", fetch = FetchType.EAGER)
     List<Aposta> apostas = new ArrayList<>();
 
     public Apostador() {

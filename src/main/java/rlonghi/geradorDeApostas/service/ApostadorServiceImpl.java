@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class ApostadorServiceImpl implements ApostadorService{
+public class ApostadorServiceImpl implements ApostadorService {
 
     @Autowired
     private ApostadorDao dao;
@@ -19,15 +19,14 @@ public class ApostadorServiceImpl implements ApostadorService{
     @Override
     public void salvar(Apostador apostador) {
         Apostador a = dao.buscarPorEmail(apostador.getEmail());
-        if(a == null) {
+        if (a == null) {
             dao.salvar(apostador);
         }
     }
 
     @Override
     public void atualizar(String email, Apostador apostador) {
-        Apostador a = dao.buscarPorEmail(email);
-        if(a == null) {
+        if (dao.buscarPorEmail(email) == null) {
             apostador.setEmail(email);
             dao.atualizar(apostador);
         }
@@ -47,4 +46,10 @@ public class ApostadorServiceImpl implements ApostadorService{
     public List<Apostador> buscarTodos() {
         return dao.buscarTodos();
     }
+
+    @Override
+    public List<Aposta> buscarApostas(Apostador apostador) {
+        return dao.buscarPorEmail(apostador.getEmail()).getApostas();
+    }
+
 }
