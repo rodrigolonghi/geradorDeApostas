@@ -21,8 +21,6 @@ public class Apostador implements Serializable {
     @OneToMany(mappedBy = "apostador")
     List<Aposta> apostas = new ArrayList<>();
 
-    //getters, setters, hashcode e equals omitidos
-
     public Apostador() {
     }
 

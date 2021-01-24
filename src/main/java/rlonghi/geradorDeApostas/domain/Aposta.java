@@ -31,8 +31,6 @@ public class Aposta implements Serializable {
     @JsonIgnore
     private Apostador apostador;
 
-    //getters, setters, hashcode e equals omitidos
-
     public Aposta(){
     }
 
