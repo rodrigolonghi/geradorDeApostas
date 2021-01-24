@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import rlonghi.geradorDeApostas.dao.ApostadorDao;
 import rlonghi.geradorDeApostas.domain.Aposta;
 import rlonghi.geradorDeApostas.domain.Apostador;
+import rlonghi.geradorDeApostas.exception.ApostadorRepeditoException;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -18,18 +19,19 @@ public class ApostadorServiceImpl implements ApostadorService {
 
     @Override
     public void salvar(Apostador apostador) {
-        Apostador a = dao.buscarPorEmail(apostador.getEmail());
-        if (a == null) {
-            dao.salvar(apostador);
+        if (dao.buscarPorEmail(apostador.getEmail()) != null) {
+            throw new ApostadorRepeditoException("E-mail repetido.");
         }
+        dao.salvar(apostador);
     }
 
     @Override
     public void atualizar(String email, Apostador apostador) {
-        if (dao.buscarPorEmail(email) == null) {
-            apostador.setEmail(email);
-            dao.atualizar(apostador);
+        if (dao.buscarPorEmail(email) != null) {
+            throw new ApostadorRepeditoException("E-mail repetido.");
         }
+        apostador.setEmail(email);
+        dao.atualizar(apostador);
     }
 
     @Override

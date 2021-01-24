@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5370595-45dc-47f5-9aaf-fb6454e49f3e" name="Default Changelist" comment="Criacao do pacote service">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/resource/rest/ApostadorRestController.java" afterDir="false" />
+    <list default="true" id="e5370595-45dc-47f5-9aaf-fb6454e49f3e" name="Default Changelist" comment="Criação da classe ApostadorRestController e seus métodos">
+      <change afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/DetalheErro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/exception/ApostadorRepeditoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/exception/NaoExisteDaoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/resource/exception/RestExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/dao/ApostadorDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/dao/ApostadorDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/Aposta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/Aposta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/Apostador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/Apostador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostadorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostadorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/resource/rest/ApostadorRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/resource/rest/ApostadorRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostadorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostadorServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostaService.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/service/ApostaServiceImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/resource/rest/ApostadorRestController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/exception/ApostadorRepeditoException.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/config/SpringInitConfig.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/dao/ApostadorDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/dao/ApostaDao.java" root0="SKIP_INSPECTION" />
@@ -52,8 +54,11 @@
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/config/SpringJpaConfig.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/config/SpringRootConfig.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/DetalheErro.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/Aposta.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/domain/Apostador.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/resource/exception/RestExceptionHandler.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/rlonghi/geradorDeApostas/exception/NaoExisteDaoException.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1nUPPQ8mnClJ8TrvCKLOHu8FFfA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -153,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611472229894</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Criação da classe ApostadorRestController e seus métodos">
+      <created>1611518076683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611518076683</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,7 +186,8 @@
     <MESSAGE value="Criação do pacote de dominio com as classes Apostador e Aposta" />
     <MESSAGE value="Adição do pacote dao e suas classes" />
     <MESSAGE value="Criacao do pacote service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criacao do pacote service" />
+    <MESSAGE value="Criação da classe ApostadorRestController e seus métodos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação da classe ApostadorRestController e seus métodos" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

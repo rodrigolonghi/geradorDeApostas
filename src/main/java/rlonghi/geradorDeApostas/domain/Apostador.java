@@ -11,7 +11,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "tbl_apostador")
 public class Apostador implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
